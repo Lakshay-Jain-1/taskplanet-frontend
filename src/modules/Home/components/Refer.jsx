@@ -1,38 +1,8 @@
 import React from 'react';
 import { Copy, Diamond, Users } from 'lucide-react';
+import ShareButton from './ShareButton';
 
-const ShareButton = ({ icon: Icon, label, gradient }) => (
-    <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        margin: '10px',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-    }}>
-        <div style={{
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            background: gradient,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-            transition: 'all 0.3s ease',
-        }}>
-            <Icon size={24} color="black" />
-        </div>
-        <span style={{
-            marginTop: '8px',
-            fontSize: '12px',
-            fontWeight: 'bold',
-            color: '#333',
-        }}>
-            {label}
-        </span>
-    </div>
-);
+
 
 const Refer = () => {
     const buttons = [
@@ -47,6 +17,7 @@ const Refer = () => {
             borderRadius: '12 px',
             display: "grid",
             gridTemplateAreas: "'name name''shareLink moneymaker' 'shareLink moneymaker'",
+            marginBottom:"40px"
         }}>
             <h2 style={{
                 textAlign: 'center',

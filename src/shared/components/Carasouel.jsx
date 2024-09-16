@@ -15,7 +15,7 @@ export default function Carasouel({images}){
     return (
       <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"30px"}}>
     
-       <img style={{borderRadius:"12px"}} src={images[imgSetter]} width="380px"/>
+       <img style={{borderRadius:"12px",width:"360px",height:"120px"}} src={images[imgSetter]}  />
 
       </div>
 
