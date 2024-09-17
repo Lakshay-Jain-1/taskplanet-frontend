@@ -6,7 +6,7 @@ const getAllSpecificPlatformTasksArray = async (platformName) => {
     
     const response = await axios.get(import.meta.env.VITE_GETTINGTASKS ,{withCredentials:true});
     let resultArray=[]
-    
+    console.log("response",response.data)
     response.data.forEach((ele)=>{
       let {platform}=ele
       if(platform==platformName){

@@ -13,7 +13,7 @@ function App() {
    
   return (
   
-    <div style={{width:"422px",minHeight:"100vh",position:"relative"}}> 
+    <div style={{width:"412px",minHeight:"100vh",position:"relative"}}> 
   
      <Header/>
      <Routes>
