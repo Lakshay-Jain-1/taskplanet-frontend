@@ -24,7 +24,7 @@ const DeleteTask = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: '140px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px', maxWidth: '400px', margin: 'auto' }}>
+    <form onSubmit={handleSubmit} style={{ marginBottom: '160px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px', maxWidth: '400px', margin: 'auto' }}>
         <h3>Delete Tasks</h3>
       <div style={{ marginBottom: '20px' }}>
         <label style={{ display: 'block', marginBottom: '8px' }}>Task Title:</label>

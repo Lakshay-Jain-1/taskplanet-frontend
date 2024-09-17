@@ -12,6 +12,7 @@ function App() {
   const [count, setCount] = useState(0)
    
   return (
+  
     <div style={{width:"422px",minHeight:"100vh",position:"relative"}}> 
   
      <Header/>
@@ -25,6 +26,7 @@ function App() {
      </Routes>
      <NavBar/>
     </div>
+   
   )
 }
 

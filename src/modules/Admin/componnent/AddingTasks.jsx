@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { gettingSubmitedDataAndSendingItToServer } from '../../../services/apiClient';
 
 function AddingTasks() {
-    // Initialize state with default values
+   
     const [formData, setFormData] = useState({
         Tasktitle: 'Default Task Title',
         TaskLink: 'https://example.com',
@@ -12,7 +12,6 @@ function AddingTasks() {
         earningsDescription: 'Default earnings description'
     });
 
-    // Handle input changes
     function handleChange(event) {
         const { name, value } = event.target;
         setFormData(prevState => ({
@@ -21,7 +20,6 @@ function AddingTasks() {
         }));
     }
 
-    // Handle form submission
     function submit(event) {
         event.preventDefault();
         gettingSubmitedDataAndSendingItToServer(formData)
@@ -31,7 +29,8 @@ function AddingTasks() {
     // Inline styles for the form
     const containerStyle = {
         maxWidth: '500px',
-        marginBottom: '90px',
+        marginTop: '40px',
+        marginBottom: '40px',
         padding: '10px',
         backgroundColor: '#f9f9f9',
         borderRadius: '8px',

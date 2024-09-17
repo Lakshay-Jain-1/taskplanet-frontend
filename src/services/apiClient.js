@@ -34,4 +34,11 @@ const getAllSpecificPlatformTasksArray = async (platformName) => {
   let response =  await axios.delete(import.meta.env.VITE_DELTEINGTASKS,{data:formData})
     console.log(response.data)
  } 
- export {getAllSpecificPlatformTasksArray,gettingSubmitedDataAndSendingItToServer,deletingATask}
+
+ const verifyingAdmin = async (name)=>{
+  let response =  await axios.post(import.meta.env.VITE_ADMIN,{name})
+    console.log(response.data)
+    return response.data
+ }
+
+ export {getAllSpecificPlatformTasksArray,gettingSubmitedDataAndSendingItToServer,deletingATask,verifyingAdmin}
