@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Home, ClipboardList, PlusCircle, Settings, LayoutGrid } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const NavItem = ({ icon: Icon, label}) =>{ 
   
-    
+  const navigate =   useNavigate()
     
     return (
   <div
-  onClick={(event)=>{console.log(label)}}
+  onClick={(event)=>{navigate(label[0].toLowerCase()+label.slice(1))}}
     style={{
       display: 'flex',
       flexDirection: 'column',

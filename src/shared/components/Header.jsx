@@ -49,7 +49,7 @@ const Header = () => {
     <header style={styles.header}>
       <div style={styles.container}>
         <div style={styles.avatar}>
-          <img src='./logo.png' height="40px" />
+          <img src='/logo.png' height="40px" />
         </div>
 
         <div style={styles.iconsContainer}>
