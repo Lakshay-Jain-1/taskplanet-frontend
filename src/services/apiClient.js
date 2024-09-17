@@ -21,6 +21,8 @@ const getAllSpecificPlatformTasksArray = async (platformName) => {
   };
   
 
- 
+ const gettingSubmitedDataAndSendingItToServer= async (name,file)=>{
+    console.log(name,file)
+ }
 
- export {getAllSpecificPlatformTasksArray}
+ export {getAllSpecificPlatformTasksArray,gettingSubmitedDataAndSendingItToServer}

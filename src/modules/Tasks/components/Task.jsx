@@ -50,6 +50,7 @@ const Task = ({ imgName, id, task }) => {
   };
   function settingintoLocalStorage(event){
     console.log(task)
+    window.localStorage.setItem("task",task.Tasktitle)
     window.localStorage.setItem("link",task.TaskLink)
     dispatch(displayDisclaimer())
   }

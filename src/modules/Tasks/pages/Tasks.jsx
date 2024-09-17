@@ -11,6 +11,7 @@ export default function Tasks() {
    const [tasks, setTasks] = useState([]);
 
    useEffect(() => {  
+      
        setImgName(`/${id}.png`);
        getAllSpecificPlatformTasks(id);
    }, [id]);

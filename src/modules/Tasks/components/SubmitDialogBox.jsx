@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { useSelector,useDispatch } from 'react-redux'
 import { displaySubmit } from '../../../store/features/TaskDisclaimer';
+import { gettingSubmitedDataAndSendingItToServer } from '../../../services/apiClient';
 function SubmitDialogBox() {
   const dispatch =  useDispatch()
   const displayOrNOT =  useSelector((state)=>state.taskDialogBoxDisplay.displaySubmit)
+ const userFile = useRef()
+ const userName = useRef()
   const dialogStyle = {
     position: "fixed",
     top: "50vh",
@@ -46,7 +49,7 @@ function SubmitDialogBox() {
   return (
   
     <div style={dialogStyle}>
-      {console.log(displayOrNOT)}
+      
       <h2 style={{textAlign:"center",color:"red"}}>Disclaimer</h2>
       <div style={contentStyle}>
          <div style={{position:'absolute', top:"0",right:"13px",fontWeight:"900",fontSize:"20px"}} onClick={()=>dispatch(displaySubmit())}  >X</div> 
@@ -54,13 +57,17 @@ function SubmitDialogBox() {
           Task verification may take 24-48 hours.
         </p>
       </div>
-      <button 
-        style={buttonStyle} 
-        onClick={()=>window.location.href=window.localStorage.getItem("link")}       
-  
-      >
-        I Understand
-      </button>
+        <div style={{display:"flex",flexDirection:"column",rowGap:"20px"}}>
+        <input type='file'  ref={userFile} />
+        <input type='text' placeholder='UserName' ref={userName} />
+        </div>
+        <button 
+          style={buttonStyle} 
+          onClick={()=>  gettingSubmitedDataAndSendingItToServer(userName.current.value,userFile.current.files[0])}       
+    
+        >
+          I Understand
+        </button>
     </div>
  
   );
