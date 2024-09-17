@@ -1,7 +1,9 @@
 import React from 'react';
 import { Gift, DollarSign, Wallet, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate()
   const styles = {
     header: {
       display: "flex",
@@ -48,7 +50,7 @@ const Header = () => {
   return (
     <header style={styles.header}>
       <div style={styles.container}>
-        <div style={styles.avatar}>
+        <div style={styles.avatar} onClick={()=>navigate("/home")} >
           <img src='/logo.png' height="40px" />
         </div>
 

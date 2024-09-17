@@ -1,7 +1,10 @@
 import React from 'react';
 import SocialmediaIcon from "../../Home/components/SocialmediaIcon";
+import { useDispatch } from 'react-redux';
+import { displayDisclaimer,displaySubmit } from '../../../store/features/TaskDisclaimer';
 
 const Task = ({ imgName, id, task }) => {
+   const dispatch =  useDispatch()
   const cardStyle = {
     backgroundColor: '#ffffff',
     borderRadius: '8px',
@@ -39,29 +42,39 @@ const Task = ({ imgName, id, task }) => {
     backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
-    padding: '10px 15px',
+    padding: '10px 1px',
     borderRadius: '5px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
-    position:"absolute",
-    bottom:"10px"
+    width:"110px"
   };
   function settingintoLocalStorage(event){
     console.log(task)
+    window.localStorage.setItem("link",task.TaskLink)
+    dispatch(displayDisclaimer())
+  }
+  function submmitting(event){
+    console.log(1)
+    dispatch(displaySubmit())
   }
   return (
     <div style={cardStyle} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px',columnGap:"30px" }}>
-      
+       {/* {console.log(task)} */}
         <SocialmediaIcon  img={imgName}  gap='30px' />
         <h3 style={titleStyle}>{task.Tasktitle}</h3>
       </div>
       <h2 style={descriptionStyle}>{task.TaskDescription}</h2>
+      <div style={{display:"flex",justifyContent:'space-between',}}>
       <p style={pointsStyle}>Points: {task.points}</p>
       <button style={buttonStyle} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#007bff'} onClick={settingintoLocalStorage}>
-        Start Task
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#007bff'} onClick={submmitting}>
+         Submit
+      </button>
+      </div>
+      <button style={{...buttonStyle,position:"absolute",left:"10px",backgroundColor:"green",width:"110px",bottom:"10px"}} onClick={settingintoLocalStorage}>
+      Start Task
       </button>
     </div>
   );

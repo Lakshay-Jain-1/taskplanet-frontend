@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux'
-import {  displayDisclaimer } from '../../../store/features/TaskDisclaimer';
-function DisclaimerDialogBox() {
-  const displayOrNot =  useSelector((state)=>state.taskDialogBoxDisplay.displayDisclaimer)
+import { displaySubmit } from '../../../store/features/TaskDisclaimer';
+function SubmitDialogBox() {
   const dispatch =  useDispatch()
+  const displayOrNOT =  useSelector((state)=>state.taskDialogBoxDisplay.displaySubmit)
   const dialogStyle = {
     position: "fixed",
     top: "50vh",
@@ -16,7 +16,7 @@ function DisclaimerDialogBox() {
     boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
     zIndex: 1000,
     overflow: "hidden",
-    display:displayOrNot?"flex":"none",
+    display:displayOrNOT?"flex":"none",
     justifyContent:"center",
     alignItems:"center",
     flexDirection:"column"
@@ -46,13 +46,10 @@ function DisclaimerDialogBox() {
   return (
   
     <div style={dialogStyle}>
+      {console.log(displayOrNOT)}
       <h2 style={{textAlign:"center",color:"red"}}>Disclaimer</h2>
       <div style={contentStyle}>
-         <div style={{position:'absolute', top:"0",right:"13px",fontWeight:"900",fontSize:"20px"}} onClick={()=>dispatch(displayDisclaimer())}  >X</div> 
-        <p style={{fontSize:"20px",textAlign:"left"}}>
-          You will get 10 points on submission of proof of task in form of screenshot. <br/>
-          You will earn your points on successful verification of your task by the task creator.
-        </p>
+         <div style={{position:'absolute', top:"0",right:"13px",fontWeight:"900",fontSize:"20px"}} onClick={()=>dispatch(displaySubmit())}  >X</div> 
         <p style={{fontSize:"18px",textAlign:"center",marginTop:"10px"}}>
           Task verification may take 24-48 hours.
         </p>
@@ -69,4 +66,4 @@ function DisclaimerDialogBox() {
   );
 }
 
-export default DisclaimerDialogBox;
+export default SubmitDialogBox;
