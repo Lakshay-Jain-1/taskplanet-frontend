@@ -36,7 +36,7 @@ const Header = () => {
     },
     avatar: {
       width: '70px',
-      height: '70px',
+      height: '90px',
       borderRadius: '50%',
       display: 'flex',
       alignItems: 'center',
@@ -51,7 +51,7 @@ const Header = () => {
     <header style={styles.header}>
       <div style={styles.container}>
         <div style={styles.avatar} onClick={()=>navigate("/home")} >
-          <img src='/logo.png' height="40px" />
+          <img src='/logo.png' height="60px" />
         </div>
 
         <div style={styles.iconsContainer}>

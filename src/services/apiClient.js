@@ -3,7 +3,8 @@ import axios from "axios"
 
 const getAllSpecificPlatformTasksArray = async (platformName) => {
     try{
-    const response = await axios.get(import.meta.env.VITE_NAME ,{withCredentials:true});
+    
+    const response = await axios.get(import.meta.env.VITE_GETTINGTASKS ,{withCredentials:true});
     let resultArray=[]
     
     response.data.forEach((ele)=>{
@@ -21,8 +22,16 @@ const getAllSpecificPlatformTasksArray = async (platformName) => {
   };
   
 
- const gettingSubmitedDataAndSendingItToServer= async (name,file)=>{
-    console.log(name,file)
+ const gettingSubmitedDataAndSendingItToServer= async (formData)=>{
+   
+  let response =  await axios.post(import.meta.env.VITE_CREATINGTASKS,formData)
+    console.log(response.data)
  }
+ 
 
- export {getAllSpecificPlatformTasksArray,gettingSubmitedDataAndSendingItToServer}
+ const deletingATask = async(formData)=>{
+  console.log("das",formData)
+  let response =  await axios.delete(import.meta.env.VITE_DELTEINGTASKS,{data:formData})
+    console.log(response.data)
+ } 
+ export {getAllSpecificPlatformTasksArray,gettingSubmitedDataAndSendingItToServer,deletingATask}
