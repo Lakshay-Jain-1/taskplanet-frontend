@@ -24,11 +24,14 @@ const Header = () => {
       display: 'flex',
       alignItems: 'center',
       gap: '24px',
+      position:"relative",
+      right:"15px"
     },
     iconWrapper: {
       display: 'flex',
       alignItems: 'center',
       gap: '8px',
+      
     },
     iconText: {
       fontSize: '14px',
@@ -43,7 +46,8 @@ const Header = () => {
       justifyContent: 'center',
       overflow: 'hidden',
       position:"relative",
-      right:"120px"      
+      right:"100px",
+            
     },
   };
 
