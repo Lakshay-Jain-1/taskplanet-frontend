@@ -1,10 +1,9 @@
 import axios from "axios"
 
-
 const getAllSpecificPlatformTasksArray = async (platformName) => {
     try{
     
-    const response = await axios.get(import.meta.env.VITE_GETTINGTASKS ,{withCredentials:true});
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND}api/tasks/` ,{withCredentials:true});
     let resultArray=[]
     console.log("response",response.data)
     response.data.forEach((ele)=>{
@@ -24,19 +23,18 @@ const getAllSpecificPlatformTasksArray = async (platformName) => {
 
  const gettingSubmitedDataAndSendingItToServer= async (formData)=>{
    
-  let response =  await axios.post(import.meta.env.VITE_CREATINGTASKS,formData)
+  let response =  await axios.post(`${import.meta.env.VITE_BACKEND}api/tasks/create`,formData)
     console.log(response.data)
  }
  
 
  const deletingATask = async(formData)=>{
-  console.log("das",formData)
-  let response =  await axios.delete(import.meta.env.VITE_DELTEINGTASKS,{data:formData})
+  let response =  await axios.delete(`${import.meta.env.VITE_BACKEND}api/tasks/delete`,{data:formData})
     console.log(response.data)
  } 
 
  const verifyingAdmin = async (name)=>{
-  let response =  await axios.post(import.meta.env.VITE_ADMIN,{name})
+  let response =  await axios.post(`${import.meta.env.VITE_BACKEND}admin/check`,{name})
     console.log(response.data)
     return response.data
  }
